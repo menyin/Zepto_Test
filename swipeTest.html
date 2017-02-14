@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background:red;
+            margin:0 auto;
+        }
+        #dv1 {
+            background: red;
+        }
+        #dv2 {
+            background: blue;
+        }
+        #dv3 {
+            background:gray;
+        }
+
+    </style>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/event.js"></script>
+    <script>
+        $(function () {
+            alert('页面加载事件');
+            $(document).on('click','.click', function (e) {
+                console.log(e.target.id);
+                alert('click触发');
+            });
+        });
+    </script>
+</head>
+<body>
+<hr/>
+<h3>移动端滑动事件</h3>
+<script src="js/zepto/touch.js"></script>
+<div id="swipe" style="width: 200px;height: 200px;background: yellow; float:left;font-size:28px;">swipe事件</div>
+<div id="swipeLeft" style="width: 200px;height: 200px;background: blue; float:left;font-size:28px;">swipeLeft</div>
+<div id="swipeRight" style="width: 200px;height: 200px;background: red; float:left;font-size:28px;">swipeRight事件</div>
+<div id="swipeUp" style="width: 200px;height: 200px;background: orange; float:left;font-size:28px;">swipeUp事件</div>
+<div id="swipeDown" style="width: 200px;height: 200px;background: blue; float:left;font-size:28px;">swipeDown事件</div>
+<script>
+    var oSwipe = document.getElementById('swipe');
+//    oSwipe .addEventListener('touchmove', function (event) {
+//        event.preventDefault();
+//    }, false);
+    $('#swipe,#swipeLeft,#swipeRight,#swipeUp,#swipeDown').on('touchmove', function (event) {
+                event.preventDefault();
+    })
+    $('#swipe').on('swipe', function () {
+        alert('swipe事件触发');
+    });
+    $('#swipeLeft').on('swipeLeft', function () {
+        alert('swipeLeft事件触发');
+    });
+    $('#swipeRight').on('swipeRight', function () {
+        alert('swipeRight事件触发');
+    });
+    $('#swipeUp').on('swipeUp', function () {
+        alert('swipeUp事件触发');
+    });
+    $('#swipeDown').on('swipeDown ', function () {
+        alert('swipeDown 事件触发');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/event.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/zepto/fx_methods.js"></script>
+
+</head>
+<body>
+<hr/>
+<h3>animate基本动画</h3>
+<div id="dv1" style="width: 100px;height: 100px;background:red;"></div>
+<input type="button" id="bt1" value="动画执行" style="font-size:28px;"/>
+<script>
+    $('#bt1').on('tap', function () {
+        $('#dv1').animate({width: '200px', height: '200px'}, 1000, 'linear', function (){
+            alert('动画完成');
+        },1000);
+    });
+</script>
+<hr/>
+<h3>animate三维动画</h3>
+<div id="dv2" style="width: 100px;height: 100px;background:red;"></div>
+<input type="button" id="bt2" value="rotateZ动画执行" style="font-size:28px;"/>
+<input type="button" id="bt3" value="translateX动画执行" style="font-size:28px;"/>
+<input type="button" id="bt4" value="scale动画执行" style="font-size:28px;"/>
+<script>
+    $('#bt2').on('tap', function () {
+        $('#dv2').animate({rotateY:'45deg'}, 1000, 'linear', function (){
+            alert('动画完成');
+        });
+    });
+    $('#bt3').on('tap', function () {
+        $('#dv2').animate({translateX:'100px'}, 1000, 'linear', function (){
+            alert('动画完成');
+        });
+    });
+    $('#bt4').on('tap', function () {
+        $('#dv2').animate({scale:0.5}, 1000, 'linear', function (){
+            alert('动画完成');
+        });
+    });
+</script>
+<hr/>
+</body>
+</html>

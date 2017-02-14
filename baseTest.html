@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background:red;
+            margin:0 auto;
+        }
+        #dv1 {
+            background: red;
+        }
+        #dv2 {
+            background: blue;
+        }
+        #dv3 {
+            background:gray;
+        }
+
+    </style>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/event.js"></script>
+    <script>
+        $(function () {
+            alert('页面加载事件');
+            $(document).on('click','.click', function (e) {
+                console.log(e.target.id);
+                alert('click触发');
+            });
+        });
+    </script>
+</head>
+<body>
+<hr/>
+<h3>on事件绑定</h3>
+<div id="dv1" class="click"></div>
+<div id="dv2" class="click"></div>
+<div id="dv3" class="click"></div>
+<hr/>
+<h3>遍历</h3>
+<p>var aData = ['a', 'b', 'c'];</p>
+<input id="btEach" type="button" value="点击遍历数组"/>
+<script>
+    $('#btEach').click(function () {
+        var aData = ['a', 'b', 'c'];
+        $.each(aData, function (index) {
+            alert(this + ':' + baseTest);
+        });
+    });
+</script>
+<hr/>
+<h3>移动端事件</h3>
+<script src="js/zepto/touch.js"></script>
+<div id="tap" style="width: 200px;height: 200px;background: red;float:left;">tap事件</div>
+<div id="singleTap" style="width: 200px;height: 200px;background: blue; float:left;font-size:28px;">singleTap 事件</div>
+<div id="doubleTap" style="width: 200px;height: 200px;background: yellow; float:left;font-size:28px;">doubleTap  事件</div>
+<div id="longTap" style="width: 200px;height: 200px;background: orange; float:left;font-size:28px;">longTap事件</div>
+<script>
+    $('#tap').on('tap', function () {
+        alert('tap事件触发');
+    });
+    $('#tap').on('tap', function () {
+        alert('tap事件触发2');
+    });
+    $('#singleTap').on('singleTap', function () {
+        alert('singleTap事件触发');
+    });
+    $('#doubleTap').on('doubleTap', function () {
+        alert('doubleTap事件触发');
+    });
+
+</script>
+
+</body>
+</html>
